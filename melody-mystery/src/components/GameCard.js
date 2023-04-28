@@ -1,4 +1,6 @@
 import { Text, Card, CardHeader, CardBody } from '@chakra-ui/react'
+import GameGuesses from './GameGuesses'
+import GuessButton from './GuessButton'
 
 export default function GameCard() {
     return (
@@ -9,7 +11,8 @@ export default function GameCard() {
                 </Text>
             </CardHeader>
             <CardBody>
-                Test Test Test
+                <GameGuesses />
+                <GuessButton />
             </CardBody>
         </Card>
     )
