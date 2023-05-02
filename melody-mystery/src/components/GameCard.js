@@ -1,6 +1,6 @@
-import { Text, Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { Text, Card, CardHeader, CardBody, Flex } from '@chakra-ui/react'
 import GameGuesses from './GameGuesses'
-import GuessButton from './GuessButton'
+import GuessButton from './SkipButton'
 import { useState } from 'react'
 import SearchBar from './SearchBar'
 
@@ -24,26 +24,28 @@ export default function GameCard() {
                     </Text>
                 </CardHeader>
                 <CardBody height='30vh'>
-                    {guesses.map((item, i) => ( <GameGuesses text={item} />))}
-                    <GuessButton onClick={addGuess}/>
+                    {guesses.map((item, i) => (<GameGuesses text={item} />))}
                 </CardBody>
-                <SearchBar />
+                <Flex m='30px'  justify='space-between'>
+                    <SearchBar />
+                    <GuessButton onClick={addGuess} />
+                </Flex>
             </Card>
         )
     } else {
         return (
             <Card height='80vh'>
-            <CardHeader align='center' borderTopRadius='5px' bgColor='green.400'>
-                <Text>
-                    Melody Mystery ~
-                </Text>
-            </CardHeader>
-            <CardBody>
-                <Text>
-                    I'm sorry, you took too many tries to guess today's melody.
-                </Text>
-            </CardBody>
-        </Card>
+                <CardHeader align='center' borderTopRadius='5px' bgColor='green.400'>
+                    <Text>
+                        Melody Mystery ~
+                    </Text>
+                </CardHeader>
+                <CardBody>
+                    <Text>
+                        I'm sorry, you took too many tries to guess today's melody.
+                    </Text>
+                </CardBody>
+            </Card>
         )
     }
 
