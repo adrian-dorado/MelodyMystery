@@ -2,6 +2,7 @@ import { Text, Card, CardHeader, CardBody } from '@chakra-ui/react'
 import GameGuesses from './GameGuesses'
 import GuessButton from './GuessButton'
 import { useState } from 'react'
+import SearchBar from './SearchBar'
 
 
 export default function GameCard() {
@@ -26,6 +27,7 @@ export default function GameCard() {
                     {guesses.map((item, i) => ( <GameGuesses text={item} />))}
                     <GuessButton onClick={addGuess}/>
                 </CardBody>
+                <SearchBar />
             </Card>
         )
     } else {
