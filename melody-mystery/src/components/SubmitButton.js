@@ -3,6 +3,6 @@ import React from 'react'
 
 export default function SubmitButton() {
   return (
-    <Button></Button>
+    <Button>Submit</Button>
   )
 }

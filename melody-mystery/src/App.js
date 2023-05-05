@@ -6,10 +6,10 @@ import { Container } from '@chakra-ui/react';
 
 function App() {
   return (
-    <Container align='center' justify='center'>
+    <Container>
       <GameCard />
     </Container>
-  );
+  )
 }
 
-export default App;
+export default App
