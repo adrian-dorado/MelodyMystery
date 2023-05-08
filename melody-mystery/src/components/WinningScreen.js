@@ -2,9 +2,9 @@ import React from 'react'
 import { Text, Card, CardHeader, CardBody, Flex } from '@chakra-ui/react'
 import TryAgain from './TryAgain'
 
-export default function LosingScreen({ clearGuesses }) {
+export default function LosingScreen(props) {
     return (
-        <Card height={{ sm: '90vh', lg: '80vh' }}>
+        <Card height={{sm: '40vh', lg: '80vh'}}>
             <CardHeader align='center' borderTopRadius='5px' bgColor='green.400'>
                 <Text>
                     Melody Mystery ~
@@ -12,12 +12,9 @@ export default function LosingScreen({ clearGuesses }) {
             </CardHeader>
             <CardBody>
                 <Text as='u'>
-                    I'm sorry, you took too many tries to guess today's melody.
+                    You did it!
                 </Text>
             </CardBody>
-            <Flex m='3' justify='space-around'>
-                <TryAgain onClick={clearGuesses} />
-            </Flex>
         </Card>
     )
 }
