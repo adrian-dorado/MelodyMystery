@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Flex, Container } from '@chakra-ui/react'
 import GameCard from './components/GameCard';
 import LosingScreen from './components/LosingScreen'
-import SpotifyLogin from './components/SpotifyLogin';
+import SpotifyLogin from './components/Spotify/SpotifyLogin';
 
 
 function App() {
