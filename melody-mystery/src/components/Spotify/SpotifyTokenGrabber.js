@@ -1,4 +1,4 @@
-export const getTokenFromSpotifyUrl = () => {
+export const getTokenFromUrl = () => {
     return window.location.hash
         .substring(1)
         .split('&')
