@@ -7,7 +7,7 @@ const config = {
 
 const colors = {
     c: {
-        blueSapphire: '#006e90',
+        spotifyGreen: '#1DB954',
         carrOrange: '#f18f01',
         turqGreen: '#a8d4ad',
         lemonYellow: '#f2f79e',
