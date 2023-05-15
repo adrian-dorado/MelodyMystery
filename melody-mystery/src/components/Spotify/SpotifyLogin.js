@@ -8,7 +8,7 @@ export default function SpotifyLogin() {
     console.log(loginUrl)
 
     return (
-        <Card height={{ sm: '90vh', lg: '80vh' }}>
+        <Card>
             <CardHeader align='center' borderTopRadius='5px' bgColor='green.400'>
                 <Text>
                     Melody Mystery ~
@@ -17,11 +17,11 @@ export default function SpotifyLogin() {
             <CardBody height='30vh'>
                 <Flex justify={'center'} align={'center'} flexDirection={'column'}>
                     <FaSpotify size={'100'} />
-                    <Button my={'15px'} backgroundColor={'c.spotifyGreen'}>
-                        <Link href={loginUrl}>
+                    <Link href={loginUrl}>
+                        <Button my={'15px'} backgroundColor={'c.spotifyGreen'}>
                             Login to Spotify
-                        </Link>
-                    </Button>
+                        </Button>
+                    </Link>
                 </Flex>
             </CardBody>
         </Card>
