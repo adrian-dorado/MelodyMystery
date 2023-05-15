@@ -1,7 +1,7 @@
 import { Input, Flex} from '@chakra-ui/react'
 import React, { useState } from 'react'
 
-export default function SearchBar(props) {
+export default function SearchBar() {
 
     const [search, setSearch] = useState('')
 

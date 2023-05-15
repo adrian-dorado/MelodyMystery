@@ -1,12 +1,8 @@
-import { useState, useEffect, createContext } from 'react'
+import { useState, createContext } from 'react'
 import { Flex, Container } from '@chakra-ui/react'
 import GameCard from './Components/GameCard';
 import LosingScreen from './Components/LosingScreen'
 import SpotifyLogin from './Spotify/SpotifyLogin';
-import { getTokenFromUrl } from './Spotify/SpotifyTokenGrabber';
-import SpotifyWebApi from 'spotify-web-api-js';
-
-const spotify = new SpotifyWebApi();
 
 export const GuessesContext = createContext();
 export const SpotifyTokenContext = createContext();
@@ -25,7 +21,7 @@ function App() {
         <Flex w={'100vw'} h={'100vh'} justify={'center'} align={'center'}>
           {!spotifyToken ? <SpotifyLogin /> : <Container> Logged In </Container>}
           <Container>
-            {guesses.length < 7 ? <GameCard /> : <LosingScreen />}
+            {guesses.length < 7 ? <GameCard guesses={guesses} /> : <LosingScreen />}
           </Container>
         </Flex >
       </GuessesContext.Provider>

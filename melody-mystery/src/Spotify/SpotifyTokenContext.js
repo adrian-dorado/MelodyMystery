@@ -5,20 +5,14 @@ import { SpotifyTokenContext } from "../App";
 
 const spotify = new SpotifyWebApi();
 
-// const TokenContext = createContext(null)
-// const useSpotifyToken = () => useContext(TokenContext)
-
 export function useSpotifyToken() {
 
     const [spotifyToken, setSpotifyToken] = useContext(SpotifyTokenContext)
 
     useEffect(() => {
-        // console.log('Spotify URI Function', getTokenFromUrl())
         const _spotifyToken = getTokenFromUrl().access_token
 
         window.location.hash = '';
-
-        // console.log('Spotify Token'._spotifyToken)
 
         if (_spotifyToken) {
             setSpotifyToken(_spotifyToken)

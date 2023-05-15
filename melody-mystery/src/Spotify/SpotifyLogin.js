@@ -1,11 +1,11 @@
 import { Card, CardHeader, CardBody, Text, Link, Flex, Button } from '@chakra-ui/react'
-import React from 'react'
 import { FaSpotify } from 'react-icons/fa'
 import { loginUrl } from './SpotifyCreds'
+import { useSpotifyToken } from './SpotifyTokenContext'
 
 export default function SpotifyLogin() {
 
-    // console.log(loginUrl)
+    useSpotifyToken();
 
     return (
         <Card>

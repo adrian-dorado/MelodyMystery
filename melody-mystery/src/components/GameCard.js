@@ -4,21 +4,8 @@ import GuessButton from './GuessButton'
 import SearchBar from './SearchBar'
 import SubmitButton from './SubmitButton'
 import Instructions from './Instructions'
-import { useContext } from 'react'
-import SpotifyLogin from '../Spotify/SpotifyLogin'
-import { GuessesContext } from '../App'
 
-
-export default function GameCard() {
-
-    // const token = useContext(spotifyToken)
-    // if (spotifyToken == '') {
-    //     return (
-    //         <SpotifyLogin />
-    //     )
-    // } else {
-
-    const [guesses, setGuesses] = useContext(GuessesContext);
+export default function GameCard({ guesses }) {
 
     return (
         <Card height={{ sm: '90vh', lg: '80vh' }}>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, Card, CardHeader, CardBody, Flex } from '@chakra-ui/react'
 import TryAgain from './TryAgain'
 
-export default function LosingScreen({ clearGuesses }) {
+export default function LosingScreen() {
     return (
         <Card height={{ sm: '90vh', lg: '80vh' }}>
             <CardHeader align='center' borderTopRadius='5px' bgColor='green.400'>
@@ -16,7 +16,7 @@ export default function LosingScreen({ clearGuesses }) {
                 </Text>
             </CardBody>
             <Flex m='3' justify='space-around'>
-                <TryAgain onClick={clearGuesses} />
+                <TryAgain />
             </Flex>
         </Card>
     )

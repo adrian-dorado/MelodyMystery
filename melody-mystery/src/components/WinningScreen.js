@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, Card, CardHeader, CardBody, Flex } from '@chakra-ui/react'
-import TryAgain from './TryAgain'
+// import TryAgain from './TryAgain'
 
 export default function LosingScreen(props) {
     return (
