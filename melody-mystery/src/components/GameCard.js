@@ -4,8 +4,14 @@ import GuessButton from './GuessButton'
 import SearchBar from './SearchBar'
 import SubmitButton from './SubmitButton'
 import Instructions from './Instructions'
+import { SpotifyContext } from '../App'
+import { useContext } from 'react'
 
 export default function GameCard({ guesses }) {
+
+    const spotifyToken = useContext(SpotifyContext)
+
+    console.log("THIS IS THE GAME CARD RENDERING THE TOKEN:", spotifyToken)
 
     return (
         <Card height={{ sm: '90vh', lg: '80vh' }}>

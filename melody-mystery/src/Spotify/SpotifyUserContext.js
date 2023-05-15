@@ -5,8 +5,9 @@ import { SpotifyContext } from "../App";
 
 const spotify = new SpotifyWebApi();
 
-export function useSpotifyToken() {
+export function GetSpotifyUser() {
 
+    const [spotifyUser, setSpotifyUser] = useContext(SpotifyContext)
     const [spotifyToken, setSpotifyToken] = useContext(SpotifyContext)
 
     useEffect(() => {
@@ -19,18 +20,11 @@ export function useSpotifyToken() {
 
             spotify.setAccessToken(_spotifyToken)
 
-            spotify.getMe().then(user => {
-                console.log('THIS IS THE USER WITHIN THE IF STATEMENT:', user)
-            })
+            spotify.getMe()
+                .then(res => setSpotifyUser(res.spotifyUser))
         }
 
-        let user = spotify.getMe().then(user => {
-            console.log('User:', user)
-        })
+        console.log(spotifyUser)
 
-        console.log("THIS IS THE USER OUTSIDE OF THE IF STATEMENT:", user)
-
-        console.log('Spoofy Token:', spotifyToken)
-
-    })
+    }, [])
 }
