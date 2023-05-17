@@ -1,5 +1,4 @@
 import { useContext, useEffect, createContext, useState } from "react";
-import { SpotifyContext } from "../App";
 
 // export const TokenContext = createContext();
 
