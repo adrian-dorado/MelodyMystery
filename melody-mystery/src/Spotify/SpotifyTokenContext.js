@@ -20,17 +20,17 @@ export function useSpotifyToken() {
             spotify.setAccessToken(_spotifyToken)
 
             spotify.getMe().then(user => {
-                console.log('THIS IS THE USER WITHIN THE IF STATEMENT:', user)
+                // console.log('THIS IS THE USER WITHIN THE IF STATEMENT:', user)
             })
         }
 
         let user = spotify.getMe().then(user => {
-            console.log('User!!!!!!!!!!!:', user)
+            // console.log('User!!!!!!!!!!!:', user)
         })
 
-        console.log("THIS IS THE USER OUTSIDE OF THE IF STATEMENT:", user)
+        // console.log("THIS IS THE USER OUTSIDE OF THE IF STATEMENT:", user)
 
-        console.log('Spoofy Token:', spotifyToken)
+        // console.log('Spoofy Token:', spotifyToken)
 
     })
 }

@@ -11,7 +11,7 @@ export default function GameCard({ guesses }) {
 
     const spotifyToken = useContext(SpotifyContext)
 
-    console.log("THIS IS THE GAME CARD RENDERING THE TOKEN:", spotifyToken)
+    // console.log("THIS IS THE GAME CARD RENDERING THE TOKEN:", spotifyToken)
 
     return (
         <Card height={{ sm: '90vh', lg: '80vh' }}>
