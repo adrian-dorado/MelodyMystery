@@ -3,7 +3,6 @@ import { Flex, Container } from '@chakra-ui/react'
 import GameCard from './Components/GameCard';
 import LosingScreen from './Components/LosingScreen'
 import SpotifyLogin from './Spotify/SpotifyLogin';
-import { GetSpotifyUser } from './Spotify/SpotifyUserContext';
 
 export const GuessesContext = createContext();
 export const SpotifyContext = createContext();
@@ -17,7 +16,9 @@ function App() {
 
   console.log("This is the list of incorrect guesses", guesses)
 
-  GetSpotifyUser()
+  // GetSpotifyUser()
+
+  
 
   return (
     <SpotifyContext.Provider

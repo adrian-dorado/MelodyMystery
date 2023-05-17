@@ -4,7 +4,7 @@ const clientId = 'af23c74ca8c64f3d91c2447fe60d1457'
 
 const redirectUri = 'http://localhost:3000'
 
-const scopes = [
+export const scopes = [
     'user-read-currently-playing',
     'user-read-recently-played',
     'user-read-playback-state',
