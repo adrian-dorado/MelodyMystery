@@ -4,9 +4,9 @@ import { loginUrl } from './SpotifyCreds'
 // import { useSpotifyToken } from './SpotifyTokenContext'
 import { useToken } from './SpotifyGetToken'
 
-export default function SpotifyLogout() {
+export default function SpotifyLogout({logout}) {
 
-    const [logout] = useToken();
+    // const [logout] = useToken();
 
     const goodbye = async e => {
         // e.preventDefault();

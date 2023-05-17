@@ -4,12 +4,10 @@ import GameCard from './Components/GameCard';
 import LosingScreen from './Components/LosingScreen'
 import SpotifyLogin from './Spotify/SpotifyLogin';
 import SpotifyLogout from './Spotify/SpotifyLogout';
-import { SpotifyGetUser } from './Spotify/SpotifyGetUser'
-import { spotifyGetToken } from './Spotify/SpotifyGetToken';
-// import { TokenContext } from './Spotify/SpotifyGetToken';
-import { AuthContext } from './Spotify/SpotifyGetToken';
 
 export const GuessesContext = createContext();
+export const CountContext = createContext();
+export const SpotifyTokenContext = createContext();
 
 function App() {
 
@@ -18,6 +16,9 @@ function App() {
   const [spotifyUser, setSpotifyUser] = useState({})
 
   const [guesses, setGuesses] = useState([])
+  const [count, setCount] = useState(6)
+
+  console.log(guesses)
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -33,28 +34,30 @@ function App() {
     setSpotifyToken(token)
   }, [])
 
-  // SpotifyGetToken();
-  // console.log(spotifyToken)
-
   console.log("This is the spoofy token::", spotifyToken)
 
   // SpotifyGetUser(spotifyToken);
 
-  // const logout = () => {
-  //   setSpotifyToken('')
-  //   window.localStorage.removeItem('token')
-  // }
+  const logout = () => {
+    setSpotifyToken('')
+    window.localStorage.removeItem('token')
+  }
 
   return (
-    <GuessesContext.Provider value={[guesses, setGuesses]}>
-      <Flex w={'100vw'} h={'100vh'} justify={'center'} align={'center'}>
-        <SpotifyLogin />
-        <Container>
-          {guesses.length < 7 ? <GameCard guesses={guesses} spotifyToken={spotifyToken} /> : <LosingScreen />}
-        </Container>
-        <SpotifyLogout />
-      </Flex >
-    </GuessesContext.Provider>
+    <SpotifyTokenContext.Provider value={[spotifyToken, setSpotifyToken]}>
+      <GuessesContext.Provider value={[guesses, setGuesses]}>
+        <CountContext.Provider value={[count, setCount]}>
+          <Flex w={'100vw'} h={'100vh'} justify={'center'} align={'center'}>
+            <SpotifyLogin />
+            <Container>
+              {guesses.length < 6 ? <GameCard guesses={guesses} /> : <LosingScreen />}
+              {/* <GameCard guesses={guesses} spotifyToken={spotifyToken} /> */}
+            </Container>
+            <SpotifyLogout logout={logout} />
+          </Flex >
+        </CountContext.Provider>
+      </GuessesContext.Provider>
+    </SpotifyTokenContext.Provider>
   )
 }
 

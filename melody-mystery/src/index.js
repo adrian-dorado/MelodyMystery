@@ -2,7 +2,7 @@ import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import App from './App';
-import { AuthProvider } from './SpotifyAuth/Auth';
+// import { AuthProvider } from './Spotify/SpotifyGetToken';
 import theme from './theme'
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
@@ -11,12 +11,10 @@ const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 root.render(
-  <AuthProvider>
-    <ChakraProvider theme={theme} >
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <App />
-    </ChakraProvider>
-  </AuthProvider>
+  <ChakraProvider theme={theme} >
+    <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+    <App />
+  </ChakraProvider>
 );
 
 // If you want your app to work offline and load faster, you can change

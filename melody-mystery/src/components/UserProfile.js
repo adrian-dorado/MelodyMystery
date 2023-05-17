@@ -1,11 +1,12 @@
 import { Box } from '@chakra-ui/react'
 import { SpotifyGetUser } from '../Spotify/SpotifyGetUser'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useAuthContext } from '../Spotify/SpotifyGetToken'
+import { SpotifyTokenContext } from '../App'
 
 export default function UserProfile() {
 
-    const { spotifyToken } = useAuthContext();
+    const spotifyToken = useContext(SpotifyTokenContext)
 
     if (spotifyToken) {
         return (
