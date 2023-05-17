@@ -5,7 +5,7 @@ import { CountContext } from '../App'
 
 export default function Instructions() {
 
-    const [count, setCount] = useContext(CountContext)
+    const [count] = useContext(CountContext)
     console.log(count)
 
 

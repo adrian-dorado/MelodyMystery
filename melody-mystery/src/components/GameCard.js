@@ -5,8 +5,12 @@ import SearchBar from './SearchBar'
 import SubmitButton from './SubmitButton'
 import Instructions from './Instructions'
 import UserProfile from './UserProfile'
+import { useContext } from 'react'
+import { GuessesContext } from '../App'
 
-export default function GameCard({ guesses }) {
+export default function GameCard() {
+
+    const [guesses] = useContext(GuessesContext)
 
 
     return (

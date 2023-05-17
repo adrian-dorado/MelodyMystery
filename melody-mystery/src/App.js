@@ -4,7 +4,6 @@ import GameCard from './Components/GameCard';
 import LosingScreen from './Components/LosingScreen'
 import SpotifyLogin from './Spotify/SpotifyLogin';
 import SpotifyLogout from './Spotify/SpotifyLogout';
-// import { TokenContext } from './Spotify/SpotifyGetToken';
 
 export const GuessesContext = createContext();
 export const CountContext = createContext();
@@ -35,9 +34,6 @@ function App() {
 
     setSpotifyToken(token)
   }, [])
-
-  // SpotifyGetToken();
-  // console.log(spotifyToken)
 
   console.log("This is the spoofy token::", spotifyToken)  // SpotifyGetUser(spotifyToken);
 
