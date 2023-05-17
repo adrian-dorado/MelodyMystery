@@ -6,8 +6,8 @@ import { CountContext } from '../App'
 
 export default function TryAgain() {
 
-    const [guesses, setGuesses] = useContext(GuessesContext)
-    const [count, setCount] = useContext(CountContext)
+    const [, setGuesses] = useContext(GuessesContext)
+    const [, setCount] = useContext(CountContext)
     const clearCount = () => setCount(6)
     const clearGuesses = () => setGuesses([])
     const buttonClick = () => {
