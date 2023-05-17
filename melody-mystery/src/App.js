@@ -21,14 +21,18 @@ function App() {
 
   async function requestSpotifyAuthorization() {
 
+    let profile = undefined;
+
     if (!code) {
       redirectToSpotifyAuthFlow(clientId);
     } else {
       const accessToken = await spotifyGetAccessToken(clientId, code);
-      const profile = await fetchProfile(accessToken);
+      profile = await fetchProfile(accessToken);
       console.log(profile);
+      // setSpotifyUser(profile);
     }
-
+    // setSpotifyUser(profile);
+    // setSpotifyUser(profile)
 
   }
 
