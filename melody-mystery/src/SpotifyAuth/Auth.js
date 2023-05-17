@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const [spotifyToken, setSpotifyToken] = useState('');
 
     return (
-        <AuthContext.Provider value={{ token, setToken }}>
+        <AuthContext.Provider value={{ spotifyToken, setSpotifyToken }}>
             {children}
         </AuthContext.Provider>
     )

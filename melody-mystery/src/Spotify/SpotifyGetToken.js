@@ -1,17 +1,84 @@
-import { useContext } from "react";
+import { useContext, useEffect, createContext, useState } from "react";
+import { SpotifyContext } from "../App";
 
-export function SpotifyGetToken() {
+// export const TokenContext = createContext();
 
-    const hashParams = {};
-    const regex = /([^&;=]+)=?([^&;]*)/g;
-    const query = window.location.hash.substring(1);
+let internalToken = null;
 
-    let match;
+export const getToken = () => internalToken;
 
-    while (match = regex.exec(query)) {
-        hashParams[match[1]] = decodeURIComponent(match[2]);
-    }
+export const AuthContext = createContext({
+    spotifyToken: null,
+    setSpotifyToken: () => null,
+});
 
-    return hashParams.access_token;
 
+export const AuthProvider = ({ children }) => {
+    const [spotifyToken, setSpotifyToken] = useState(null);
+
+    return (
+        <AuthContext.Provider value={{ spotifyToken, setSpotifyToken }}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
+
+export const useAuthContext = () => useContext(AuthContext);
+
+
+export const useToken = () => {
+    
+    const { spotifyToken, setSpotifyToken } = useAuthContext();
+    
+    useEffect(() => {
+        async function fetchToken() {
+            // const token = await spotifyGetToken();
+            // setSpotifyToken(token);
+            const hash = window.location.hash;
+            let token = window.localStorage.getItem('token');
+            
+            if (!token && hash) {
+                token = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1]
+                
+                window.location.hash = ''
+                window.localStorage.setItem('token', token)
+            }
+            
+            internalToken = token
+        }
+        if (!spotifyToken) {
+            fetchToken();
+        }
+    }, [spotifyToken, setSpotifyToken])
+    
+    const login = async () => {
+        const token = internalToken;
+        setSpotifyToken(token);
+        return;
+    }
+    
+    const logout = async () => {
+        setSpotifyToken('')
+        window.localStorage.removeItem('token')
+    }
+    
+    return [login, logout]
+}
+
+// export async function spotifyGetToken() {
+
+//     useEffect(() => {
+//         const hash = window.location.hash;
+//         let token = window.localStorage.getItem('token');
+
+//         if (!token && hash) {
+//             token = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1]
+
+//             window.location.hash = ''
+//             window.localStorage.setItem('token', token)
+//         }
+
+//         internalToken = token
+//     }, [])
+//     console.log(internalToken);
+// }
