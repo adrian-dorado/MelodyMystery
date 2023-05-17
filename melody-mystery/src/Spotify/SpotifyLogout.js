@@ -3,13 +3,8 @@ import { FaSpotify } from 'react-icons/fa'
 import { loginUrl } from './SpotifyCreds'
 import { useSpotifyToken } from './SpotifyTokenContext'
 
-export default function SpotifyLogout() {
+export default function SpotifyLogout({ logout }) {
 
-    // useSpotifyToken();
-
-    // const logout = () => {
-        
-    // }
 
     return (
         <Card>
@@ -21,11 +16,9 @@ export default function SpotifyLogout() {
             <CardBody height='30vh'>
                 <Flex justify={'center'} align={'center'} flexDirection={'column'}>
                     <FaSpotify size={'100'} />
-                    <Link href={loginUrl}>
-                        <Button my={'15px'} backgroundColor={'c.spotifyGreen'}>
-                            Logout with Spotify
-                        </Button>
-                    </Link>
+                    <Button onClick={logout} my={'15px'} backgroundColor={'c.spotifyGreen'}>
+                        Logout with Spotify
+                    </Button>
                 </Flex>
             </CardBody>
         </Card>

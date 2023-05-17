@@ -5,8 +5,7 @@ import { useSpotifyToken } from './SpotifyTokenContext'
 
 export default function SpotifyLogin() {
 
-    useSpotifyToken();
-
+    
     return (
         <Card>
             <CardHeader align='center' borderTopRadius='5px' bgColor='green.400'>

@@ -5,14 +5,18 @@ const code = params.get('code');
 
 export async function requestSpotifyAuthorization() {
 
+    let profile = undefined;
+
     if (!code) {
         redirectToSpotifyAuthFlow(clientId);
     } else {
         const accessToken = await spotifyGetAccessToken(clientId, code);
-        const profile = await fetchProfile(accessToken);
+        profile = await fetchProfile(accessToken);
         console.log(profile);
+        // setSpotifyUser(profile);
     }
-
+    // setSpotifyUser(profile);
+    // setSpotifyUser(profile)
 
 }
 
@@ -24,8 +28,8 @@ async function redirectToSpotifyAuthFlow(clientId) {
 
     const params = new URLSearchParams();
     params.append('client_id', clientId);
-    params.append('response_type', code);
-    params.append('redirect_uri', redirectUriCallback);
+    params.append('response_type', 'code');
+    params.append('redirect_uri', redirectUri);
     params.append('scope', scopes.join(' '));
     params.append('code_challenge_method', 'S256');
     params.append('code_challenge', challenge);
@@ -54,13 +58,13 @@ async function generateCodeChallenge(codeVerifier) {
 }
 
 async function spotifyGetAccessToken(clientId, code) {
-    const verifier = localStorage('verifier');
+    const verifier = localStorage.getItem('verifier');
 
     const params = new URLSearchParams();
     params.append("client_id", clientId);
     params.append("grant_type", "authorization_code");
     params.append("code", code);
-    params.append("redirect_uri", "http://localhost:5173/callback");
+    params.append("redirect_uri", redirectUri);
     params.append("code_verifier", verifier);
 
     const result = await fetch("https://accounts.spotify.com/api/token", {
