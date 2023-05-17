@@ -5,7 +5,7 @@ import { useContext } from 'react';
 export const SpotifyGetUser = async (spotifyToken) => {
     // e.preventDefault()
 
-    const [spotifyUser, setSpotifyUser] = useContext(SpotifyContext);
+    // const [spotifyUser, setSpotifyUser] = useContext(SpotifyContext);
 
     const profileUrl = 'https://api.spotify.com/v1/me';
 
@@ -15,6 +15,6 @@ export const SpotifyGetUser = async (spotifyToken) => {
         }
     })
 
-    setSpotifyUser(data.user.items)
-    console.log(spotifyUser);
+    // setSpotifyUser(data.user.items)
+    // console.log(spotifyUser);
 }
